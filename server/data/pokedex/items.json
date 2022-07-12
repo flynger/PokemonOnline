@@ -1,0 +1,90 @@
+{
+    "pokeball": {
+        "num": 4,
+        "name": "Poké Ball",
+        "alias": "pokeball",
+        "sprite": "poke_ball",
+        "gen": 1,
+        "desc": "A device for catching wild Pokémon. It’s thrown like a ball at a Pokémon, comfortably encapsulating its target.",
+        "shortDesc": "A device for catching wild Pokémon.",
+        "canBeHeld": true,
+        "boosts": {
+            "atk": 0,
+            "spa": 0
+        },
+        "fling": {
+            "basePower": 0
+        },
+        "naturalGift": {
+            "basePower": 0,
+            "type": null
+        },
+        "condition": {
+            "duration": 0,
+            "onSourceModifyAccuracyPriority": 0
+        },
+        "isPokeball": true
+    },
+    "potion": {
+        "num": 5,
+        "name": "Potion",
+        "alias": "potion",
+        "sprite": "potion",
+        "gen": -1,
+        "desc": null,
+        "shortDesc": null,
+        "canBeHeld": true,
+        "boosts": {
+            "atk": 0,
+            "spa": 0
+        },
+        "fling": {
+            "basePower": 0
+        },
+        "naturalGift": {
+            "basePower": 0,
+            "type": null
+        },
+        "condition": {
+            "duration": 0,
+            "onSourceModifyAccuracyPriority": 0
+        },
+        "itemUser": [],
+        "megaStone": null,
+        "megaEvolves": null,
+        "isNonstandard": null,
+        "onBasePowerPriority": 0,
+        "isBerry": false,
+        "zMove": false,
+        "zMoveFrom": null,
+        "onModifySpDPriority": 0,
+        "isPokeball": false,
+        "onTryHealPriority": 0,
+        "onResidualOrder": 0,
+        "onResidualSubOrder": 0,
+        "onModifyAccuracyPriority": 0,
+        "isGem": false,
+        "onMemory": null,
+        "forcedForme": null,
+        "onPlate": null,
+        "zMoveType": null,
+        "onDrive": null,
+        "onModifyAtkPriority": 0,
+        "isChoice": false,
+        "onModifySpAPriority": 0,
+        "onFractionalPriorityPriority": 0,
+        "onAttractPriority": 0,
+        "onAfterMoveSecondaryPriority": 0,
+        "onModifyDefPriority": 0,
+        "onModifyMovePriority": 0,
+        "ignoreKlutz": false,
+        "onBoostPriority": 0,
+        "onDamagePriority": 0,
+        "onNegateImmunity": false,
+        "onDamagingHitOrder": 0,
+        "onTrapPokemonPriority": 0,
+        "onAfterMoveSecondarySelfPriority": 0,
+        "onHitPriority": 0,
+        "onSourceModifyAccuracyPriority": 0
+    }
+}

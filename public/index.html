@@ -1,0 +1,198 @@
+<html>
+
+<head>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
+  <link href="libraries/jquery-ui.css" rel="stylesheet" />
+  <link href="//db.onlinewebfonts.com/c/b2e75c336df191233b3096682c9ee6be?family=PixelarRegularW01-Regular"
+    rel="stylesheet" type="text/css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.dev.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.dev.js.map"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js.map"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.slim.dev.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.slim.dev.js.map"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.slim.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.slim.js.map"></script>
+
+  <script src="libraries/jquery-3.6.0.js"></script>
+  <script src="libraries/jquery-ui.js"></script>
+  <script src="libraries/p5.min.js"></script>
+  <script src="libraries/p5.dom.min.js"></script>
+  <script src="libraries/p5.play.js"></script>
+  <script src="libraries/p5.sound.min.js"></script>
+  <script src="libraries/joy.js"></script>
+
+  <script src="src/client.js"></script>
+  <script src="src/Screen.js"></script>
+  <script src="src/main.js"></script>
+  <script src="src/drawObjects.js"></script>
+  <script src="src/encounter.js"></script>
+  <script src="src/battle.js"></script>
+  <script src="src/chat.js"></script>
+  <script src="src/inventory.js"></script>
+  <script src="src/properties/collision.js"></script>
+  <script src="src/properties/position.js"></script>
+  <script src="src/properties/userMovement.js"></script>
+  <script src="src/properties/graphics/graphics.js"></script>
+  <script src="src/properties/graphics/rawImage.js"></script>
+  <script src="src/properties/graphics/splitImage.js"></script>
+  <script src="src/properties/graphics/animator.js"></script>
+  <script src="src/properties/graphics/imageSet.js"></script>
+  <script src="src/entities/tile.js"></script>
+  <script src="src/entities/interactable.js"></script>
+  <script src="src/entities/player.js"></script>
+  <script src="src/rawMap.js"></script>
+  <script src="src/map.js"></script>
+
+  <script src="data/pokedex.js"></script>
+  <script src="data/moves.js"></script>
+  <script src="data/abilities.js"></script>
+  <script src="data/growthRates.js"></script>
+  <script src="data/spriteData.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color:#50c878;">
+  <div id="login" style="text-align: center;">
+    <p id="titleText">Pokémon Online!</p>
+    <p class="normalText login">Username</p><input type="text" id="username" class="loginFields login"
+      placeholder="Username" autocomplete="off">
+    <p class="normalText login">Password</p><input type="password" id="password" class="loginFields login"
+      placeholder="Password" autocomplete="off">
+    <br>
+    <label style="font-family: Power Clear; font-size: 16px; color: white; user-select: none;"><input type="checkbox"
+        class="login" id="rememberMe"> Remember Username & Password</label>
+    <!-- <label style="font-family: Power Clear; font-size: 16px; color: white; user-select: none;"><input type="checkbox"
+        class="login" id="autoLogin"> Auto sign-in</label> -->
+    <br>
+    <br>
+    <br>
+    <button onclick="login()" class="button login" id="loginBtn">Login</button>
+    <br>
+    <button onclick="openSignUp()" class="button login" id="signUpBtn">Sign up</button>
+  </div>
+
+  <div id="signUp" style="text-align: center; display: none;">
+    <p id="titleText">Account Creation</p>
+    <p class="normalText login">Pick a Username</p><input type="text" id="signUpUsername" class="loginFields login"
+      placeholder="Username" autocomplete="off">
+    <p class="normalText login">Create your Password</p><input type="text" id="signUpPassword" class="loginFields login"
+      placeholder="Password" autocomplete="off">
+    <br>
+    <!-- <label style="font-family: Power Clear; font-size: 16px; color: white; user-select: none;"><input type="checkbox"
+        class="login" id="rememberMe"> Remember Username & Password</label> -->
+    <!-- <label style="font-family: Power Clear; font-size: 16px; color: white; user-select: none;"><input type="checkbox"
+        class="login" id="autoLogin"> Auto sign-in</label> -->
+    <br>
+    <br>
+    <label style="font-family: Power Clear; font-size: 24px; color: white; user-select: none;" for="starter">Choose a
+      starter:</label>
+    <label class="starterLabel"><input type="radio" name="starter" value="BULBASAUR" id="starter1"><img
+        src="res/pokemon/icons/1.png" class="starterImg"> Bulbasaur</label>
+    <label class="starterLabel"><input type="radio" name="starter" value="CHARMANDER" id="starter2"><img
+        src="res/pokemon/icons/4.png" class="starterImg"> Charmander</label>
+    <label class="starterLabel"><input type="radio" name="starter" value="SQUIRTLE" id="starter3"><img
+        src="res/pokemon/icons/7.png" class="starterImg"> Squirtle</label>
+    </select>
+    <br>
+    <br>
+    <br>
+    <label style="font-family: PowerClearBold; font-size: 48px; color: white; user-select: none;"
+      for="avatar">Avatar</label>
+    <br>
+    <button onclick="previousAvatar()"
+      style="width: 38px; height: 50px; font-size: 40; vertical-align: text-bottom;">&#8249;</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img
+      src="res/characters/red.gif" height="16%" style="image-rendering: pixelated;"
+      id="avatarSelect">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="nextAvatar()"
+      style="width: 38px; height: 50px; font-size: 40; vertical-align: text-bottom;">&#8250;</button>
+    <br>
+    <br>
+    <br>
+    <button onclick="signUp()" class="button login" id="signUpBtn">Create Account</button>
+  </div>
+
+  <div id="battleGUI" style="display: none;">
+    <img src="res/battle/grass_bg.png" alt="battleBackground" id="battleBackground" width="1080px" height="720px" />
+    <img src="res/battle/grass_base0.png" alt="base0" id="base0" />
+    <img src="res/battle/grass_base1.png" alt="base1" id="base1" />
+    <img src="res/pokemon/sprites/back/normal/0.png" alt="pokemon0" id="pokemon0" width="400px" height="400px" />
+    <img src="res/pokemon/sprites/back/normal/0.png" id="ghostmon0" width="400px" height="400px"
+      style="display: none;" />
+    <img src="res/pokemon/sprites/front/normal/0.png" alt="pokemon1" id="pokemon1" width="200px" height="200px" />
+    <img src="res/pokemon/sprites/front/normal/0.png" id="ghostmon1" width="200px" height="200px"
+      style="display: none;" />
+    <img src="res/gui/battle/hpbar0.png" alt="hpbar0" id="hpbar0" width="444px" />
+    <img src="res/gui/battle/hpbar1.png" alt="hpbar1" id="hpbar1" width="428px" />
+    <img src="res/gui/battle/hpbargreen.png" alt="hp0" id="hp0" height="12px" width="192px" />
+    <img src="res/gui/battle/hpbargreen.png" alt="hp1" id="hp1" height="12px" width="192px" />
+    <img src="res/gui/battle/xpbar.png" alt="xp0" id="xp0" height="8px" width="256px" />
+    <label id="name0" class="battleLabel"></label>
+    <label id="name1" class="battleLabel"></label>
+    <label id="level0" class="battleLabel"></label>
+    <label id="level1" class="battleLabel"></label>
+    <label id="userHP" class="battleLabel"></label>
+    <div id="dialogueBox" style="display: none;">
+      <!-- 24px/32px old-->
+      <div style="font:32px/48px Power Clear;overflow:hidden;" id="dialogue">
+        Charizard used Flamethrower!
+      </div>
+    </div>
+    <div id="moveOptions" style="display: none;">
+      <button onclick="selectMove(1)" id="move1" class="moveBtn"></button>
+      <button onclick="selectMove(2)" id="move2" class="moveBtn"></button>
+      <button onclick="selectMove(3)" id="move3" class="moveBtn"></button>
+      <button onclick="selectMove(4)" id="move4" class="moveBtn"></button>
+    </div>
+    <div id="battleOptions" style="display: none;">
+      <button onclick="   moveSelector()" id="fightBtn">FIGHT</button>
+      <button onclick="fleeBattle()" id="runBtn">RUN</button>
+      <button onclick="switchPokemon()" id="switchBtn">POKéMON</button>
+      <button onclick="useInv()" id="bagBtn">BAG</button>
+    </div>
+    <button onclick="showBattleOptions()" id="backBtn" class="backBtn" style="display: none;">Back</button>
+  </div>
+
+  <div id="joyDiv" style="position:absolute;width:300px;height:300px;margin-bottom:20px;z-index: 10;"></div>
+  <button onclick="" id="chatLabel" style="display: none;">&nbsp;&nbsp;Chat</button>
+  <button onclick="toggleChat()" id="chatBtn" style="display: none;">Hide Chat</button>
+  <div id="chat" style="display: none;">
+    <div id="chatOutput">
+      You have now connected to the server.
+    </div>
+  </div>
+  <input type="text" id="chatInput" style="display: none;" placeholder="Press T to open chat">
+
+  <img src="res/gui/icons/backpack_sprite_closed.png" onmouseover="mouseOverInv()" onmouseout="mouseOverInv()" onclick="toggleInv()" id="invBtn" style="display: none;" class="invBtn">
+
+  <div id="inventory" style="display: none; width: 435px; height: 345px;" class="" >
+    <button onclick="" id="invLabel" style="display: block; width: 405px; height: 25px;">&nbsp;&nbsp;Inventory</button>
+    <button onmouseover="mouseOverInv()" onmouseout="mouseOverInv()" onclick="toggleInv()" id="closeInv" style="display: block; font-weight: bold;">X</button>
+    <div style="font:16px/24px Power Clear;overflow:auto; width: 430px; height: 320px;" id="invBox">
+      <div id="invItems" class="ui-accordion">
+        <h3 class="ui-item"><div id="icon1" style="display: inline-block; content: url('res/items/item121.png'); height: 32px; margin-bottom: -10px; margin-top: -10px; margin-right: 4px;"></div>Poke Ball (x4)</h3>
+        <div class="ui-item">An item used to catch Pokemon. Single use.
+          <br><br>
+          <button class="ui-btn">Use</button><button class="ui-btn">Discard</button></div>
+        <h3 class="ui-item">Potion (x1)</h3>
+        <div style="height: fit-content;" class="ui-item">Second content panel
+          Second content panel
+          Second content panel
+          Second content panel
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <input type="text" id="searchInv" style="display: block;" placeholder="Search inventory..."> -->
+
+  <button onclick="toggleMap()" id="mapBtn" style="display: none;"></button>
+  <button onclick="" id="moneyBtn" style="display: none;"></button>
+  <img src="res/gui/icons/map_kanto.png" alt="Map of Kanto" id="kantoMap" style="display: none;" />
+  <button id="ghostBtn" style="display: none;"></button>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
+</body>
+
+</html>

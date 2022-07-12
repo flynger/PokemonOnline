@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "public",
+			"path": "public"
+		},
+		{
+			"name": "server",
+			"path": "server"
+		},
+		{
+			"name": "legacy",
+			"path": "legacy"
+		}
+	]
+}

@@ -1,0 +1,67 @@
+{
+       "columns": 8,
+       "image": "public\/res\/tilesets\/Outside.png",
+       "imageheight": 16064,
+       "imagewidth": 256,
+       "margin": 0,
+       "name": "Outside",
+       "spacing": 0,
+       "tilecount": 4016,
+       "tiledversion": "1.4.3",
+       "tileheight": 32,
+       "tiles": [
+              {
+                     "id": 6,
+                     "properties": [
+                            {
+                                   "name": "isGrass",
+                                   "type": "bool",
+                                   "value": true
+                            }
+                     ]
+              },
+              {
+                     "id": 428,
+                     "properties": [
+                            {
+                                   "name": "collidable",
+                                   "type": "bool",
+                                   "value": true
+                            }
+                     ]
+              },
+              {
+                     "id": 429,
+                     "properties": [
+                            {
+                                   "name": "collidable",
+                                   "type": "bool",
+                                   "value": true
+                            }
+                     ]
+              },
+              {
+                     "id": 436,
+                     "properties": [
+                            {
+                                   "name": "collidable",
+                                   "type": "bool",
+                                   "value": true
+                            }
+                     ]
+              },
+              {
+                     "id": 437,
+                     "properties": [
+                            {
+                                   "name": "collidable",
+                                   "type": "bool",
+                                   "value": true
+                            }
+                     ]
+              }
+       ],
+       "tilewidth": 32,
+       "type": "tileset",
+       "version": 1.4
+}

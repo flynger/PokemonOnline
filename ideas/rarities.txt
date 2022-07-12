@@ -1,0 +1,12 @@
+Pokémon Rarity Tiers
+
+Common: [unallocated]
+Uncommon: 1/16
+Rare: 1/128
+Epic: 1/1024
+Legendary: 1/65,536
+Mythical: 1/524,288
+
+-----------------------------
+
+Shiny: 1/8192

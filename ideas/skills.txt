@@ -1,0 +1,14 @@
+Taming
+- Catching pokemon will reward Taming xp
+- New pokedex entries award extra xp (x8)
+- Shiny (x1024) and rarer pokemon award more xp
+
+Breeding
+
+Training
+
+Fishing
+
+Mining
+
+Farming

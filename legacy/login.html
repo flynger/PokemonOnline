@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-database.js"></script>
+</head>
+<style>
+    .btn {
+        background-color: #4CAF50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    .inp {
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+</style>
+
+<body>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBge30sHePeJJcFyiHVDcL0WrjbCcRCQms",
+            authDomain: "pokemon-supernova.firebaseapp.com",
+            databaseURL: "https://pokemon-supernova.firebaseio.com",
+            projectId: "pokemon-supernova",
+            storageBucket: "pokemon-supernova.appspot.com",
+            messagingSenderId: "571552154756",
+            appId: "1:571552154756:web:0ade3413c920e2f5ad2ed1"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const txtEmail = document.getElementById('txtEmail');
+        const txtPassword = document.getElementById('txtPassword');
+        const btnLogin = document.getElementById('btnLogin');
+        const btnSignUp = document.getElementById('btnSignUp');
+        const btnLogout = document.getElementById('btnLogout');
+        btnLogin.addEventListener('click', e => {
+            const email = txtEmail.value;
+            const pass = txtPassword.value;
+            const auth = firebase.auth();
+            const promise = auth.signInWithEmailAndPassword(email, pass);
+            promise.catch(e => console.log(e.message));
+        });
+
+        btnSignUp.addEventListener('click', e => {
+            const email = txtEmail.value;
+            const pass = txtPassword.value;
+            const auth = firebase.auth();
+            const promise = auth.createUserWithEmailAndPassword(email, pass);
+            promise.catch(e => console.log(e.message));
+        });
+
+        firebase.auth().onAuthStateChanged(firebaseUser => {
+            if(firebaseUser){
+                window.location.replace='http://www.w3docs.com/';
+            }
+            else {
+                console.log("not loggen in");
+            }
+        });
+    </script>
+    <div class="container">
+        Please enter your credentials below to continue to the game.
+        <br>
+        <input id="txtEmail" type="email" class="inp" placeholder="Email">
+        <br> <br>
+        <input id="txtPassword" type="password" class="inp" placeholder="Password">
+        <br> <br>
+        <button id="btnLogin" class="btn">Log In</button>
+        <button id="btnSignUp" class="btn">Sign Up</button>
+        <button id="btnLogout" class="btn" style="display: none;">Log Out</button>
+    </div>
+</body>
+
+</html>
