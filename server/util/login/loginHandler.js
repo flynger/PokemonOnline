@@ -3,8 +3,6 @@
     module.exports.login = function (data, game) {
         var players = game.players;
         var server = game.server;
-        var trainer = players.byName.trainer;
-        var account = players.byName.account;
         var targetPlayer;
         if (typeof data.name === "string" && typeof data.pass === "string" && account[data.name.toLowerCase()] && !players.bySocket.account[data.id]) {
             data.username = data.name.toLowerCase();

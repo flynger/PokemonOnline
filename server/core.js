@@ -17,6 +17,7 @@ var pokedex = game.pokedex;
 var chat = game.chat;
 var players = require("./util/players/players")(game);
 var maps = require("./util/maps/maps")(game);
+
 var loginHandler = game.loginHandler;
 var inputHandler = game.inputHandler;
 var pokemon = game.pokemon;
@@ -24,7 +25,7 @@ var battleHandler = require("./util/battleHandler/battle")(game);
 var event = require("./util/eventHandler/event")(game);
 
 const jsonfile = require("./libs/node_modules/jsonfile");
-const fs = require("./libs/node_modules/graceful-fs");
+const fs = require("./libs/node_modules/graceful-fs/graceful-fs");
 
 const backupFile = './data/login/backup.json';
 var trainer = players.byName.trainer;
@@ -329,6 +330,19 @@ game.sendLocation = function (player, playerToSend, idle) {
         console.log(trainer[playerToSend].name + " should see " + trainer[player].name + " move");
         server.emit(account[playerToSend].socket, { id: trainer[player].displayName, map: trainer[player].map, submap: trainer[player].submap, x: trainer[player].x, y: trainer[player].y, facing: trainer[player].facing, idle: idle, avatar: trainer[player].avatar }, "playerMovement");
     }
+    // createData("position",{hello: "b1"})
+
+
+    // player:{
+    //     positon:{
+
+    //     }
+
+    //     tariner:{
+
+    //     }
+
+    // }    
         // else
         // console.log("should not get here");
 }

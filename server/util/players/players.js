@@ -1,21 +1,45 @@
 module.exports = function (game) {
     const jsonfile = require('../../libs/node_modules/jsonfile');
     var players = {
-        byName: {
-            account: require('../../data/login/players.json'),
-            trainer: {}
-        },
-        bySocket: {
-            account: {},
-            trainer: {}
-        },
-        online: [],
-        choices: {
-            starters: ["BULBASAUR", "CHARMANDER", "SQUIRTLE"],
-            avatars: ["red", "green", "brendan", "may", "blue", "oak", "bug_catcher", "biker"]
-        }
+
+        llama: "dfg3333",
+        dfg3333: "llama"
+        
+        // player: {
+        //     acc: {
+        //         asidhasi
+        //         aduiashd
+                
+        //     },
+
+        //     trainer: {
+
+
+        //     }
+
+        //     sockId: 
+
+        // },
+        // socketIdToUsername: {
+        //     id: username
+        // }
+
+        // players[]
+
+        // byName: {
+        //     account: require('../../data/login/players.json'),
+        //     trainer: {}
+        // },
+        // bySocket: {
+        //     account: {},
+        //     trainer: {}
+        // },
+        // online: [],
+        // choices: {
+        //     starters: ["BULBASAUR", "CHARMANDER", "SQUIRTLE"],
+        //     avatars: ["red", "green", "brendan", "may", "blue", "oak", "bug_catcher", "biker"]
+        // }
     };
-    var account = players.byName.account;
     for (player in account) {
         if (account[player].logged) {
             delete account[player].logged;
