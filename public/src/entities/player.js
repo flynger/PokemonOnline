@@ -69,11 +69,3 @@ class player {
     }
   }
 }
-
-var i = 0;
-var f = (x, y) => {console.log(x, y)}
-f("g", "z")
-
-function f(){
-
-}

@@ -1,4 +1,4 @@
-client.init("73.118.243.128:3000");
+client.init(window.location.host);
 
 var playerData = {
   exists: false,
@@ -77,8 +77,8 @@ function setup() {
   }
   else {
     document.getElementById('joyDiv').style.zIndex = -2;
-      playerData.FPS = 30;
-      frameRate(30);
+      playerData.FPS = 120;
+      frameRate(120);
       console.log("Movement FPS: " + playerData.FPS);
       console.log("Drawing FPS: " + frameRate());
       setInterval(stepProperties, 1000 / playerData.FPS);

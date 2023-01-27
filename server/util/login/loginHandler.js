@@ -2,6 +2,8 @@
     const jsonfile = require('../../libs/node_modules/jsonfile');
     module.exports.login = function (data, game) {
         var players = game.players;
+        var account = players.byName.account;
+        var trainer = players.byName.trainer;
         var server = game.server;
         var targetPlayer;
         if (typeof data.name === "string" && typeof data.pass === "string" && account[data.name.toLowerCase()] && !players.bySocket.account[data.id]) {
