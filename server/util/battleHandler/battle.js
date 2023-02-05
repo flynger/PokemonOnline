@@ -36,6 +36,7 @@ module.exports = (game) => {
                 if (pokemon.flags) {
                     delete pokemon.flags;
                 }
+                pokemon.hp = pokemon.stats.hp;
             }
             delete player.activePokemon;
             player.busy = false;

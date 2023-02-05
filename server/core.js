@@ -31,19 +31,19 @@ const backupFile = './data/login/backup.json';
 var trainer = players.byName.trainer;
 var account = players.byName.account;
 
-stream = new game.showdown.BattleStream();
+// stream = new game.showdown.BattleStream();
 
-(async () => {
-    for await (const output of stream) {
-        console.log("output: " + output);
-    }
-})();
+// (async () => {
+//     for await (const output of stream) {
+//         console.log("output: " + output);
+//     }
+// })();
 
-stream.write(`>start {"formatid":"gen7randombattle"}`);
-stream.write(`>player p1 {"name":"Alice"}`);
-stream.write(`>player p2 {"name":"Bob"}`);
-stream.write(`>p1 default`);
-stream.write(`>p2 move 1`);
+// stream.write(`>start {"formatid":"gen7randombattle"}`);
+// stream.write(`>player p1 {"name":"Alice"}`);
+// stream.write(`>player p2 {"name":"Bob"}`);
+// stream.write(`>p1 default`);
+// stream.write(`>p2 move 1`);
 // stream.write(`>p1 move 1`);
 // stream.write(`>p2 move 1`);
 // stream.write(`>p1 move 1`);
@@ -286,7 +286,9 @@ server.onDisconnect = (socket) => {
     }
 }
 
-// server end
+// code run on server termination
+process.on("SIGINT", () => process.exit(0));
+
 process.on('exit', (code) => {
     server.send({}, "serverDown");
     for (player in trainer) {
@@ -316,7 +318,7 @@ game.sendLocationToAllPlayers = function (playerName, idle) {
 game.sendWarpToAllPlayers = function (targetPlayer, map) {
     for (player of map.playersInMap) {
         if (server.socketExists(account[player].socket)) {
-            console.log(trainer[player].name + " should see " + targetPlayer.name + " disconnect");
+            // console.log(trainer[player].name + " should see " + targetPlayer.name + " disconnect");
             server.emit(account[player].socket, { id: targetPlayer.displayName }, "sendDisconnect");
         } else {
             console.log("error! could not find socket for " + player);

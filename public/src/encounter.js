@@ -25,24 +25,22 @@ function fleeBattle() {
     endBattle();
     playerData.sounds.flee.setVolume(0.1);
     playerData.sounds.flee.play();
-    var data = {
+    let data = {
         id: client.socket.id
     }
     client.send(data, "fleeBattle");
 }
 
 function updatePokemon() {
-    var directory = "normal";
-    if (playerData.sentPokemon.shiny) directory = "shiny";
-    document.getElementById("pokemon0").src = "res/pokemon/sprites/back/" + directory + "/" + spriteData[playerData.sentPokemon.species].id + ".png";
-    document.getElementById("pokemon0").style.left = parseInt(document.getElementById("base0").style.left) + (parseInt(document.getElementById("base0").width) - parseInt(document.getElementById("pokemon0").width)) / 2 + spriteData[playerData.sentPokemon.species].back.offsetX;
-    document.getElementById("pokemon0").style.top = (window.displayHeight - 720) / 2 + 165 + spriteData[playerData.sentPokemon.species].back.offsetY;
+    let mySpriteData = spriteData[playerData.sentPokemon.species] ? spriteData[playerData.sentPokemon.species] : {front:{offsetX:0,offsetY:0},back:{offsetX:0,offsetY:0}};
+    document.getElementById("pokemon0").src = "res/pokemon/sprites/back/" + (playerData.sentPokemon.shiny ? "shiny" : "normal") + "/" + pokedex[playerData.sentPokemon.species].id + ".png";
+    document.getElementById("pokemon0").style.left = parseInt(document.getElementById("base0").style.left) + (parseInt(document.getElementById("base0").width) - parseInt(document.getElementById("pokemon0").width)) / 2 + mySpriteData.back.offsetX;
+    document.getElementById("pokemon0").style.top = (window.displayHeight - 720) / 2 + 165 + mySpriteData.back.offsetY;
 
-    directory = "normal";
-    if (playerData.encounter.shiny) directory = "shiny";
-    document.getElementById("pokemon1").src = "res/pokemon/sprites/front/" + directory + "/" + spriteData[playerData.encounter.species].id + ".png";
+    let enemySpriteData = spriteData[playerData.encounter.species] || {front:{offsetX:0,offsetY:0},back:{offsetX:0,offsetY:0}};
+    document.getElementById("pokemon1").src = "res/pokemon/sprites/front/" + (playerData.encounter.shiny ? "shiny" : "normal") + "/" + pokedex[playerData.encounter.species].id + ".png";
     document.getElementById("pokemon1").style.left = parseInt(document.getElementById("base1").style.left) + (parseInt(document.getElementById("base1").width) - parseInt(document.getElementById("pokemon1").width)) / 2;
-    document.getElementById("pokemon1").style.top = (window.displayHeight - 720) / 2 + 50 + spriteData[playerData.encounter.species].front.offsetY;
+    document.getElementById("pokemon1").style.top = (window.displayHeight - 720) / 2 + 50 + enemySpriteData.front.offsetY;
 }
 
 function playBattleMusic() {

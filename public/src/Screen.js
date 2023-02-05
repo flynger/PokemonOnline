@@ -26,11 +26,11 @@ var Screen = {
     window.onresize = Screen.resize;
   },
   resize: function () {
-    if (playerData.joystick){
+    if (playerData.joystick) {
       Screen.canvas.size(480, 270);
     }
     document.getElementById("defaultCanvas0").style.height = window.innerHeight;
-    document.getElementById("defaultCanvas0").style.width = 16/9 * window.innerHeight;
+    document.getElementById("defaultCanvas0").style.width = 16 / 9 * window.innerHeight;
     Screen.canvas.position((window.innerWidth - parseInt(document.getElementById("defaultCanvas0").style.width)) / 2, 0);
     document.getElementById("defaultCanvas0").style.imageRendering = "pixelated";
   },
@@ -42,13 +42,13 @@ var Screen = {
     var elem = document.documentElement;
     if (elem.requestFullscreen) {
       elem.requestFullscreen()
-      .then(err => Screen.resize());
+        .then(err => Screen.resize());
     } else if (elem.webkitRequestFullscreen) { /* Safari */
       elem.webkitRequestFullscreen()
-      .then(err => Screen.resize());
+        .then(err => Screen.resize());
     } else if (elem.msRequestFullscreen) { /* IE11 */
       elem.msRequestFullscreen()
-      .then(err => Screen.resize());
+        .then(err => Screen.resize());
     }
   }
 }
@@ -110,14 +110,14 @@ function draw() {
   background(0, 0, 0, opacity);
   if (countDown) {
     opacity -= 8;
-    if(opacity <= 0) {
+    if (opacity <= 0) {
       players[client.socket.id].controller.canMove = true;
       counter = 0;
       countDown = false;
     }
   }
-  /* Day/night effect 
-  background(0, 0, 0, 120); */
+  /* Day/night effect */
+  // background(0, 0, 50, ((255-opacity)/255) * 120);
 }
 // function step() {
 

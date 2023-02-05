@@ -2075,22 +2075,106 @@
                     "weight": 50
                 },
                 {
+                    "species": "METAPOD",
+                    "minLevel": 2,
+                    "maxLevel": 4,
+                    "weight": 20
+                },
+                {
+                    "species": "BUTTERFREE",
+                    "minLevel": 5,
+                    "maxLevel": 7,
+                    "weight": 10
+                },
+                {
                     "species": "WEEDLE",
                     "minLevel": 2,
                     "maxLevel": 4,
                     "weight": 45
                 },
                 {
+                    "species": "KAKUNA",
+                    "minLevel": 2,
+                    "maxLevel": 4,
+                    "weight": 15
+                },
+                {
+                    "species": "BEEDRILL",
+                    "minLevel": 2,
+                    "maxLevel": 4,
+                    "weight": 9
+                },
+                {
+                    "species": "PICHU",
+                    "minLevel": 2,
+                    "maxLevel": 3,
+                    "weight": 7
+                },
+                {
                     "species": "PIKACHU",
                     "minLevel": 2,
                     "maxLevel": 7,
-                    "weight": 7
+                    "weight": 5
                 },
                 {
                     "species": "MEWTWO",
                     "minLevel": 5,
                     "maxLevel": 10,
                     "weight": 1
+                },
+                {
+                    "species": "MEW",
+                    "minLevel": 5,
+                    "maxLevel": 10,
+                    "weight": 1
+                },
+                {
+                    "species": "HOOH",
+                    "minLevel": 5,
+                    "maxLevel": 6,
+                    "weight": 1
+                },
+                {
+                    "species": "LUGIA",
+                    "minLevel": 5,
+                    "maxLevel": 6,
+                    "weight": 1
+                },
+                {
+                    "species": "ZIGZAGOON",
+                    "minLevel": 2,
+                    "maxLevel": 5,
+                    "weight": 30
+                },
+                {
+                    "species": "TAILLOW",
+                    "minLevel": 2,
+                    "maxLevel": 4,
+                    "weight": 30
+                },
+                {
+                    "species": "CHATOT",
+                    "minLevel": 4,
+                    "maxLevel": 5,
+                    "weight": 15
+                },
+                {
+                    "species": "TRUBBISH",
+                    "minLevel": 3,
+                    "maxLevel": 5,
+                    "weight": 10
+                },
+                {
+                    "species": "GOTHITA",
+                    "minLevel": 4,
+                    "maxLevel": 5,
+                    "weight": 10
+                },
+                {
+                    "species": "GOLETT",
+                    "minLevel": 5,
+                    "maxLevel": 6,
+                    "weight": 5
                 }
             ]
         }

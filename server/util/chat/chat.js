@@ -83,6 +83,7 @@
             } else if (data.message.substring(0, 7) == "/reload") {
                 server.send({}, "reloadGame");
             } else if (data.message.substring(0, 6) == "/party") {
+                // /party [player] [species] [level]
                 var args = data.message.split(" ");
                 var player = trainer[args[1].toLowerCase()];
                 var partyToAdd = player.pokemon.party;

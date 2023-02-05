@@ -108,16 +108,16 @@
         targetPlayer.logged = true;
         targetPlayer.socket = data.id;
         console.log(color.green, targetPlayerTrainer.displayName + " logged in.");
-        var encounter = {};
-        if (targetPlayerTrainer.encounter.species) {
-            encounter.species = targetPlayerTrainer.encounter.species
-            encounter.name = targetPlayerTrainer.encounter.name
-            encounter.level = targetPlayerTrainer.encounter.level
-            encounter.percentHP = targetPlayerTrainer.encounter.hp / targetPlayerTrainer.encounter.stats.hp
+        var encounter = targetPlayerTrainer.encounter;
+        if (encounter.species) {
+            // hide encounter details
+            let { species, name, level } = encounter;
+            targetPlayerTrainer.encounter = { species, name, level, percentHP: encounter.hp / encounter.stats.hp };
         }
         players.online.push(data.username);
         players.getMap(targetPlayerTrainer).playersInMap.push(data.username);
         game.sendDataToPlayer(targetPlayerTrainer, "loginSuccess");
+        targetPlayerTrainer.encounter = encounter; // restore encounter details
         for (player of players.getMap(targetPlayerTrainer).playersInMap) {
             if (player != data.username) {
                 game.sendLocation(player, data.username, false);

@@ -9,7 +9,7 @@
         accuracy: [1 / 3, 3 / 8, 3 / 7, 1 / 2, 3 / 5, 3 / 4, 1, 4 / 3, 5 / 3, 2, 7 / 3, 8 / 3, 3],
         crit: [1, 1 / 3, 1 / 12, 1 / 24]
     }
-    stageMultipliers.atk, stageMultipliers.def, stageMultipliers.spa, stageMultipliers.spd, stageMultipliers.spe = stageMultipliers.base;
+    stageMultipliers.atk = stageMultipliers.def = stageMultipliers.spa = stageMultipliers.spd = stageMultipliers.spe = stageMultipliers.base;
     stageMultipliers.evasion = stageMultipliers.accuracy;
 
     pokemon.stats = {
@@ -283,7 +283,7 @@
             mon.xp = pokemon.getXP(species, level);
         }
         // shiny check
-        if (!shinylocked && randomNumber(1, 8192) == 1) {
+        if (!shinylocked && randomNumber(1, 512) == 1) { // shiny rate 1 in 8192
             mon.shiny = true;
         }
         // generate moves
