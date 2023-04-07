@@ -49,15 +49,15 @@ for (layer of rawMap.layers) {
         //console.log("Tile " + tile + " at x " + tileData.x + ", y " + tileData.y);
         if (tiles[tile]) {
             console.log("Tile " + tile + " at x " + tileData.x + ", y " + tileData.y);
-            if (tiles[tile].collidable) {
+            if (tiles[tile].isCollidable) {
                 map.collidables.push(tileData);
             } if (tiles[tile].isGrass) {
                 map.grass.push(tileData);
             } if (tiles[tile].ledge) {
                 tileData.direction = tiles[tile].ledge;
                 map.ledges.push(tileData);
-            } if (tiles[tile].warpTile) {
-                tileData.destination = {map:"",submap:"",x:0,y:0};
+            } if (tiles[tile].isWarp) {
+                tileData.destination = {map:"",submap:submap,x:0,y:0};
                 map.warpTiles.push(tileData);
             } if (tiles[tile].item) {
                 tileData.item = "random";
